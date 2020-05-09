@@ -6,18 +6,35 @@
       rel="stylesheet"
     />
     <link href="index.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html">
+  
+<style>
+    .button {
+      background-color: yellow;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      border: 4px solid black;
+      color: black;
+      padding: 15px 32px;
+      width: 50%;
+      float: center;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: rgba(255, 255, 0, 0.74)
+    }
+    </style>
   </head>
   <body>
-   
+    <button class = "button" id= "play" onclick="play()">Mothers Day Message!</button>
     <div class="container">
         <div class="text">
             <span id="typed"></span>
           </div>
-      </div>
-    <audio autoplay loop>
-       <source src="bestdayofmylife.mp3" type="audio/mp3">
-    </audio>      
+      </div>   
     <script>
       var options = {
         strings: [
@@ -48,8 +65,13 @@
         backDelay: 1500,
         smartBackspace: true
       };
-
-      var typed = new Typed("#typed", options);
+      var playing = false
+      function play() {
+        document.getElementById('play').style.visibility = "hidden";
+        var typed = new Typed("#typed", options);
+        var audio = new Audio('bestdayofmylife.mp3');
+        audio.play();
+      }
     </script>
   </body>
 </html>
