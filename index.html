@@ -26,6 +26,13 @@
     .button:hover {
       background-color: rgba(255, 255, 0, 0.74)
     }
+    .image{
+      visibility:hidden;
+      width:80%;
+      padding-left: 10%;
+      padding-right: 10%;
+      padding-top: 80;
+    }
     </style>
   </head>
   <body>
@@ -34,7 +41,8 @@
         <div class="text">
             <span id="typed"></span>
           </div>
-      </div>   
+      </div>
+    <img id = "im" class = "image" src = "fam.jpeg" >  
     <script>
       var options = {
         strings: [
@@ -65,13 +73,22 @@
         backDelay: 1500,
         smartBackspace: true
       };
+      var img = new Image();
+      img.src = "fam.jpeg"
       var playing = false
       function play() {
         document.getElementById('play').style.visibility = "hidden";
+        document.getElementById('play').innerHTML = "";
+        document.getElementById('play').style.padding = "0px 0px";
+        
         var typed = new Typed("#typed", options);
         var audio = new Audio('bestdayofmylife.mp3');
         audio.play();
+        setTimeout(showimage, 120000)
       }
+      function showimage(){
+        document.getElementById('im').style.visibility = "visible"        
+       }
     </script>
   </body>
 </html>
